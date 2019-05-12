@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Blog</title>
+    </head>
+    <body>
+        {% for post in object_list %}
+        <div class="post">
+            <a href="{% url 'post' pk=post.pk %}"></a>
+            <h2> {{ post.titulo }}</h2>
+            <p class="meta">
+                {{ post.data_criado }} | {{ post.autor }}
+            </p>
+            {{ post.texto }}
+        </div>
+    {% endfor %}
+    </body>
+</html>

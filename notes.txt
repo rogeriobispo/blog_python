@@ -1,0 +1,24 @@
+colocar passos para iniciar ambiente python.
+
+Criar projeto django
+    django-admin startproject projeto
+
+cria uma nova aplicação para o projeto.
+    python manage.py startapp blog
+
+Inicia o servidor
+    python manage.py runserver
+
+Gerar migrações
+    python manage.py makemigrations
+
+executar migração python.
+     python manage.py migrate
+
+Cria um super usuario no python. para gerenciar o admin da aplicação.
+    python manage.py createsuperuser
+
+ Devemos registrar nossas classes no admin.py
+    from models.blog import *
+    admin.site.register(models.Post)
+    admin.site.register(models.Comentario)

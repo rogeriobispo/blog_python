@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Blog</title>
+    </head>
+    <body>
+        <div class="post">
+            <h2> {{ post.titulo }}</h2>
+            <p class="meta">
+                {{ post.data_criado }} | {{ post.autor }}
+            </p>
+            {{ post.texto }}
+        </div>
+
+        {%  for comentario in object.comentario_set.all %}
+            <div class="comment">
+                <div>{{ comentario.data_criado }} | {{ comentario.autor }}</div>
+                <p> {{ comentario.texto }}</p>
+            </div>
+
+        {% endfor %}
+    </body>
+</html>
