@@ -1,8 +1,7 @@
-<html>
-    <head>
-        <title>Blog</title>
-    </head>
-    <body>
+{% extends "base.html" %}
+
+{% block post_entries %}
+
         <div class="post">
             <h2> {{ post.titulo }}</h2>
             <p class="meta">
@@ -10,13 +9,18 @@
             </p>
             {{ post.texto }}
         </div>
-
+         <a class="btn btn-default" href="{% url 'comentario_novo' pk=post.pk %}">Comentario novo</a>
         {%  for comentario in object.comentario_set.all %}
             <div class="comment">
-                <div>{{ comentario.data_criado }} | {{ comentario.autor }}</div>
+                <div>{{ comentario.data_criado }} | {{ comentario.autor }}
+                  ({{ comentario.likes }})  <a href="{% url 'comentario_like' pk=comentario.pk %}">Like</a> |
+                  ({{ comentario.unlikes }})   <a href="{% url 'comentario_unlike' pk=comentario.pk %}">Disslike</a>
+                </div>
                 <p> {{ comentario.texto }}</p>
             </div>
 
         {% endfor %}
-    </body>
-</html>
+
+{% endblock %}
+
+

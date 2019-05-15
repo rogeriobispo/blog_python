@@ -1,17 +1,18 @@
-<html>
-    <head>
-        <title>Blog</title>
-    </head>
-    <body>
-        {% for post in object_list %}
+
+{% extends "base.html" %}
+
+{% block post_entries %}
+
+    {% for post in object_list %}
         <div class="post">
-            <a href="{% url 'post' pk=post.pk %}"></a>
-            <h2> {{ post.titulo }}</h2>
+            <a href="{% url 'post' pk=post.pk %}">
+                <h2> {{ post.titulo }}</h2>
+            </a>
             <p class="meta">
                 {{ post.data_criado }} | {{ post.autor }}
             </p>
             {{ post.texto }}
         </div>
     {% endfor %}
-    </body>
-</html>
+
+{% endblock %}

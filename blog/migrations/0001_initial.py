@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('autor', models.CharField(max_length=100)),
                 ('texto', models.TextField()),
                 ('unlikes', models.IntegerField(default=0)),
-                ('curtir', models.IntegerField(default=0)),
+                ('likes', models.IntegerField(default=0)),
                 ('data_criado', models.DateTimeField(auto_now_add=True)),
                 ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Post')),
             ],

@@ -19,7 +19,7 @@ class Comentario(models.Model):
     autor = models.CharField(max_length=100)
     texto = models.TextField()
     unlikes = models.IntegerField(default=0)
-    curtir = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
     data_criado = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
 
@@ -27,9 +27,9 @@ class Comentario(models.Model):
     def __str__(self):
         return self.autor + ' '+ str(id)
 
-    def likes (self):
-        self.curtir += 1
+    def like(self):
+        self.likes += 1
 
     def unlike(self):
-        self.unlike += 1
+        self.unlikes += 1
 
